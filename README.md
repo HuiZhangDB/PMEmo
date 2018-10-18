@@ -39,9 +39,14 @@ Aforementioned table provides an overview of the dataset’s content including t
 * Files `A_dynamic_mean.csv` and `A_dynamic_std.csv` contain statistical value for continuous annotations in the arousal dimension while Files `V_dynamic_mean.csv` and `V_dynamic_std.csv` contain that in the valence dimension. 
 * The statistical value for overall annotations in these two emotion dimension is written in Files `A_static.csv` and `V_static.csv` respectively.
 
-> The first 15-second annotations are removed from the PMEmo data. All these features are extracted using OpenSMILE toolbox. 
+> The first 15-second annotations are removed from the PMEmo data. All these features are extracted using OpenSMILE toolbox (See details in our paper). 
 
 ## Code & Usage
+The following notebooks and scripts, stored in this repository, have been developed for the dataset.
+
+* [utils](./utils.py): General utility tools for PMEmo (load function, etc.).
+* [features](./features.py): Features extracted with OpenSMILE.
+* [baselines](./baselines): baseline models for MER.
 
 ...TBC...
 
