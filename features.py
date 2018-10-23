@@ -155,8 +155,8 @@ def _write_features_to_csv(headers, musicIds, contents, distfile):
 
 
 if __name__ == "__main__":
-    wavdir ="/Users/huizhang/WDC/音乐情感计算/音乐数据集/PMEmo/数据集/5-Chorus_wav"
-    opensmiledir = "/Users/huizhang/openSMILE/openSMILE-2.1.0"
+    wavdir ="/Path/to/WAVs"
+    opensmiledir = "/Path/to/openSMILE-2.1.0"
 
     static_distfile = "static_features.arff"
     lld_distdir = "IS13features_lld"
