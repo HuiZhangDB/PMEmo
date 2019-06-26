@@ -29,45 +29,7 @@ the acoustic features and the annotations are all stored in CSV files
 (delimited by comma).
 
 The updated dataset consists of:  
-.  
-├── metadata.csv, song id, file name, song tile, artists, album, duration, start/end timestamp of chorus  
-│   
-├── chorus, 794 music clips (.MP3, chorus part)  
-│   ├── 1.mp3  
-│   ├── ...  
-│   └── 13.mp3  
-│   
-├── annotations, the static and dynamic annotations for 794 songs in the dimension of valence and arousal  
-│   ├── dynamic\_annotations.csv  
-│   ├── dynamic\_annotations\_std.csv  
-│   ├── static\_annotations.csv  
-│   └── static\_annotations\_std.csv  
-│  
-├── EDA, the electrodermal activity data of each subject for 794 songs  
-│   ├── 1000\_EDA.csv  
-│   ├── ...  
-│   └── 9\_EDA.csv  
-│   
-├── comments, Chinese/English user comments from NetEaseMusic/SoundCloud  
-│   ├── netease  
-│   │   ├── 1.txt  
-│   │   ├── ...  
-│   │   └── 996.txt  
-│   └── soundcloud  
-│       ├── 1.txt  
-│       ├── ...  
-│       └── 996.txt  
-│  
-├── features, pre-computed acoustic features  
-│   ├── dynamic_features.csv, 260 acoustic low-level descriptors of each 0.5 second for each song  
-│   └── static_features.csv, 6373 overall acoustic features of each song  
-│   
-├── lyrics, lyrics files of songs  
-│   ├── 1.lrc  
-│   ├── ...  
-│   └── 996.lrc  
-│   
-└── netease_soundcloud.csv, music meta of NetEaseMusic/SoundCloud
+![](img/ContentDescription.png)
 
 > The first 15-second annotations are removed from the PMEmo data. All these features are extracted using OpenSMILE toolbox (See details in our paper). 
 
