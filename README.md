@@ -36,11 +36,12 @@ The updated dataset consists of:
 ## Code & Usage
 The following notebooks and scripts, stored in this repository, have been developed for the dataset.
 
-* [utils](./utils.py): General utility tools for PMEmo (load function, etc.).
+* [transformat](./transformat.sh): To transform MP3 to WAV for adapting requirememt of OpenSIMLE.
 * [features](./features.py): Features extracted with OpenSMILE.
-* [baselines](./baselines): baseline models for MER.
-
-...TBC...
+* [static\_mer](./static_mer.ipynb): Baseline models for static MER.
+* [dynamic\_mer](./static_mer.ipynb): Baseline models for dynamic MER.
+* [EDA\_features\_ex](./EDA_features_ex.ipynb): To extract EDA features.
+* [lyric\_analysis](./lyric_analysis.ipynb)To get the lyric texts in chorus parts
 
 ## License & co
 Please cite our [paper](https://dl.acm.org/citation.cfm?id=3206037) if you use our code or data.

@@ -108,3 +108,7 @@ venv.bak/
 # the dataset resources
 dataset/*
 !dataset/.gitkeep
+
+# the temp results
+temp_results/*
+!temp_results/.gitkeep
