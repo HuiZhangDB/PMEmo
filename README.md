@@ -38,8 +38,8 @@ The following notebooks and scripts, stored in this repository, have been develo
 
 * [transformat](transformat.sh): To transform MP3 to WAV for adapting requirememt of OpenSIMLE.
 * [features](features.py): Features extracted with OpenSMILE.
-* [static\_mer](static_mer.ipynb): Baseline models for static MER.
-* [dynamic\_mer](static_mer.ipynb): Baseline models for dynamic MER.
+* [static\_MER](static_MER.ipynb): Baseline models for static MER.
+* [dynamic\_MER](dynamic_MER.ipynb): Baseline models for dynamic MER.
 * [EDA\_features\_ex](EDA_features_ex.ipynb): To extract EDA features.
 * [lyric\_analysis](lyric_analysis.ipynb): To get the lyric texts in chorus parts
 
