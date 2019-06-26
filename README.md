@@ -15,6 +15,11 @@ To briefly summarize, the PMEmo dataset provides:
 * manually annotated emotion labels: static labels for the whole clips (i.e., overall labels), and dynamic labels for each 0.5-second segment (i.e., continuous labels over time);
 * Corresponding EDA physiological signals.
 
+New contents have been added to the updated dataset:
+
+* song lyrics (LRC),
+* song comments from online music websites (Chinese and English texts).
+
 ## Data Description
 The whole [PMEmo dataset](http://pmemo.hellohui.cn/) of approximately 1.3 GB can be downloaded online. Considering copyright restrictions,
 full songs are not included in this dataset but the chorus
@@ -23,21 +28,46 @@ compatible for a wide range of platforms, the metadata of songs,
 the acoustic features and the annotations are all stored in CSV files
 (delimited by comma).
 
-
-
-![](img/ContentDescription.png)
-
-Aforementioned table provides an overview of the dataset’s content including three directories and ten CSV files. 
-
-* Directory `Chorus` contains the chorus parts of 794 songs and all these music excerpts are of MP3 format; 
-* Directory `EDA` consists of files recording the subjects’ electrodermal activity data when listening to each song. The EDA signals are saved in simple text files, which enable it easy to access by various programming languages; 
-* All the annotations including static labels and dynamic labels are stored in Directory `Annotations` and they are divided into each file in song unit. 
-* File `static_features.csv` contains 6373 songlevel global features which constitute the INTERSPEECH 2013 ComParE Challenge feature set. 
-* Considering the computing complex, we adopt a smaller set of features (only the 65 low-level descriptors of the ComParE feature set are extracted), and then calculate the mean and standard deviation of the features with their first-order derivatives accompanied to form the 260 segment-level features (i.e., local features) in File `dynamic_features.csv`.
-* File `metadata.csv` contains the basic information of the 794 songs (song identifier, file name, song title and artists). 
-* File `chorus.csv` contains the timestamps of chorus section in the full song. 
-* Files `A_dynamic_mean.csv` and `A_dynamic_std.csv` contain statistical value for continuous annotations in the arousal dimension while Files `V_dynamic_mean.csv` and `V_dynamic_std.csv` contain that in the valence dimension. 
-* The statistical value for overall annotations in these two emotion dimension is written in Files `A_static.csv` and `V_static.csv` respectively.
+The updated dataset consists of:  
+.  
+├── metadata.csv, song id, file name, song tile, artists, album, duration, start/end timestamp of chorus  
+│   
+├── chorus, 794 music clips (.MP3, chorus part)  
+│   ├── 1.mp3  
+│   ├── ...  
+│   └── 13.mp3  
+│   
+├── annotations, the static and dynamic annotations for 794 songs in the dimension of valence and arousal  
+│   ├── dynamic\_annotations.csv  
+│   ├── dynamic\_annotations\_std.csv  
+│   ├── static\_annotations.csv  
+│   └── static\_annotations\_std.csv  
+│  
+├── EDA, the electrodermal activity data of each subject for 794 songs  
+│   ├── 1000\_EDA.csv  
+│   ├── ...  
+│   └── 9\_EDA.csv  
+│   
+├── comments, Chinese/English user comments from NetEaseMusic/SoundCloud  
+│   ├── netease  
+│   │   ├── 1.txt  
+│   │   ├── ...  
+│   │   └── 996.txt  
+│   └── soundcloud  
+│       ├── 1.txt  
+│       ├── ...  
+│       └── 996.txt  
+│  
+├── features, pre-computed acoustic features  
+│   ├── dynamic_features.csv, 260 acoustic low-level descriptors of each 0.5 second for each song  
+│   └── static_features.csv, 6373 overall acoustic features of each song  
+│   
+├── lyrics, lyrics files of songs  
+│   ├── 1.lrc  
+│   ├── ...  
+│   └── 996.lrc  
+│   
+└── netease_soundcloud.csv, music meta of NetEaseMusic/SoundCloud
 
 > The first 15-second annotations are removed from the PMEmo data. All these features are extracted using OpenSMILE toolbox (See details in our paper). 
 
