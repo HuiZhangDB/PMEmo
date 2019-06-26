@@ -103,3 +103,8 @@ venv.bak/
 # mypy
 .mypy_cache/
 .env
+
+
+# the dataset resources
+dataset/*
+!dataset/.gitkeep
