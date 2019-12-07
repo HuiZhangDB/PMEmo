@@ -24,7 +24,7 @@ New update! The updated PMEmo dataset incorporates:
 The updated PMEmo enables researchers to conduct analysis in multiple modalities.
 
 ## Data Description
-The whole PMEmo dataset of approximately 1.3 GB can be downloaded online ([the original version (2018)](https://drive.google.com/drive/folders/1NhN4KaLQPFg9nRNOwne-Lnkxi3nlJHR3?usp=sharing), [the updated version (2019)](https://drive.google.com/drive/folders/1qDk6hZDGVlVXgckjLq9LvXLZ9EgK9gw0?usp=sharing)). Considering copyright restrictions,
+The whole PMEmo dataset of approximately 1.3 GB can be downloaded online [[the original version (2018)](https://drive.google.com/drive/folders/1NhN4KaLQPFg9nRNOwne-Lnkxi3nlJHR3?usp=sharing)] [[the updated version (2019)](https://drive.google.com/drive/folders/1qDk6hZDGVlVXgckjLq9LvXLZ9EgK9gw0?usp=sharing)]. Considering copyright restrictions,
 full songs are not included in this dataset but the chorus
 excerpts are available in PMEmo. To make the data accessible and
 compatible for a wide range of platforms, the metadata of songs,
