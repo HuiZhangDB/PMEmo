@@ -15,13 +15,16 @@ To briefly summarize, the PMEmo dataset provides:
 * manually annotated emotion labels: static labels for the whole clips (i.e., overall labels), and dynamic labels for each 0.5-second segment (i.e., continuous labels over time);
 * Corresponding EDA physiological signals.
 
-New contents have been added to the updated dataset:
+New update! The updated PMEmo dataset incorporates:
 
 * song lyrics (LRC),
-* song comments from online music websites (Chinese and English texts).
+* song comments from online music websites (Chinese and English texts),
+* extended physiological feature space.
+
+The updated PMEmo enables researchers to conduct analysis in multiple modalities.
 
 ## Data Description
-The whole [PMEmo dataset](http://pmemo.hellohui.cn/) of approximately 1.3 GB can be downloaded online. Considering copyright restrictions,
+The whole PMEmo dataset of approximately 1.3 GB can be downloaded online ([the original version (2018)](https://drive.google.com/drive/folders/1NhN4KaLQPFg9nRNOwne-Lnkxi3nlJHR3?usp=sharing), [the updated version (2019)](https://drive.google.com/drive/folders/1qDk6hZDGVlVXgckjLq9LvXLZ9EgK9gw0?usp=sharing)). Considering copyright restrictions,
 full songs are not included in this dataset but the chorus
 excerpts are available in PMEmo. To make the data accessible and
 compatible for a wide range of platforms, the metadata of songs,
