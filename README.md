@@ -69,3 +69,5 @@ Please cite our [paper](https://dl.acm.org/citation.cfm?id=3206037) if you use o
 } 
 ```
 
+## Applications
+[pmemo_map](http://apps.emomusic.cn/pmemo_map/): Indexing music excerpts in PMEmo dataset according to its overall emotion annotation.
