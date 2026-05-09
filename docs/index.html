@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PMEmo · Music Emotion Recognition Dataset</title>
+    <meta name="description" content="PMEmo: 794 pop chorus clips × 457 listeners × valence-arousal × EDA — open dataset for music emotion recognition" />
+    <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/echarts@5.5.0/dist/echarts.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/echarts-wordcloud@2.1.0/dist/echarts-wordcloud.min.js"></script>
+  </head>
+  <body>
+    <div class="frame">
+      <header class="masthead">
+        <div class="masthead-inner">
+          <div class="masthead-brand">PMEMO/2019<span class="blink">_</span></div>
+          <nav class="masthead-nav">
+            <a href="#overview"><span>01</span> overview</a>
+            <a href="#scatter"><span>02</span> va_atlas</a>
+            <a href="#samples"><span>03</span> samples</a>
+            <a href="#text"><span>04</span> text</a>
+            <a href="#ml"><span>05</span> ml</a>
+          </nav>
+          <div class="masthead-meta">readme.html · 1.3GB · public</div>
+        </div>
+      </header>
+
+      <section class="hero">
+        <div class="hero-prompt">cat README.md</div>
+        <h1 class="hero-title">PMEMO<span class="sep">/</span>2019</h1>
+        <p class="hero-tagline">
+          <span class="hl">794</span> pop-music chorus clips, annotated by <span class="hl">457</span> listeners
+          along the valence-arousal plane, with simultaneous electrodermal-activity
+          (EDA / skin conductance) recordings. An open dataset for music emotion recognition,
+          published at ICMR 2018 (Yokohama).
+        </p>
+        <dl class="hero-meta">
+          <dt>authors</dt>
+          <dd>Zhang K. · Zhang H. · Li S. · Yang C. · Sun L.</dd>
+          <dt>venue</dt>
+          <dd>ICMR '18 / Proc. of the 2018 ACM Int. Conf. on Multimedia Retrieval, pp. 135–142</dd>
+          <dt>repo</dt>
+          <dd><a href="https://github.com/HuiZhangDB/PMEmo" target="_blank" rel="noreferrer">github.com/HuiZhangDB/PMEmo</a></dd>
+          <dt>lab</dt>
+          <dd><a href="https://www.next.zju.edu.cn/" target="_blank" rel="noreferrer">next.zju.edu.cn</a> · NEXT Lab, Zhejiang University</dd>
+          <dt>tags</dt>
+          <dd>music · emotion · physiology · valence-arousal · pop-songs · multi-modal</dd>
+        </dl>
+      </section>
+
+      <section id="overview" class="section">
+        <header class="section-head">
+          <span class="num">[01]</span>
+          <h2>OVERVIEW · BY THE NUMBERS</h2>
+          <span class="stamp">last updated 2019-06-26</span>
+        </header>
+        <div class="section-body">
+          <p class="section-intro">
+            <span class="lbl">SOURCE</span>
+            From Billboard Hot 100, iTunes Top 100 and UK Top 40 Singles charts (2016–2017),
+            an initial pool of 1,000 popular songs was deduplicated to 794. For each song,
+            the chorus segment was manually selected by music students, then annotated
+            by ≥10 listeners (266 Chinese non-music students + 44 music majors + 47 native
+            English speakers). Skin conductance was recorded simultaneously at 50 Hz.
+          </p>
+
+          <div class="almanac" id="almanac"></div>
+
+          <div class="cols-2">
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">FIG.01</span>
+                <h3>SONGS_PER_SOURCE</h3>
+                <span class="stamp">n = 1329 (with overlap)</span>
+              </div>
+              <p class="fig-caption">3 charts contributed the original 1,000-song pool. Overlap removed → 794 unique chorus clips.</p>
+              <div id="chart-source" class="chart" style="height:240px"></div>
+            </figure>
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">FIG.02</span>
+                <h3>QUADRANT_DISTRIBUTION</h3>
+                <span class="stamp">n = 767</span>
+              </div>
+              <p class="fig-caption">Pop-music skews toward Q1 (high V, high A) — bright + energetic. Q4 (calm) is rare.</p>
+              <div id="chart-quadrant" class="chart" style="height:240px"></div>
+            </figure>
+          </div>
+
+          <figure class="figure">
+            <div class="fig-head">
+              <span class="id">FIG.03</span>
+              <h3>TOP_ARTISTS · n=15</h3>
+              <span class="stamp">by clip count</span>
+            </div>
+            <p class="fig-caption">Drake leads the pack — typical of late-2010s pop-chart dominance.</p>
+            <div id="chart-artist" class="chart" style="height:340px"></div>
+          </figure>
+        </div>
+      </section>
+
+      <section id="scatter" class="section">
+        <header class="section-head">
+          <span class="num">[02]</span>
+          <h2>VA_ATLAS · VALENCE-AROUSAL SPACE</h2>
+          <span class="stamp">click point → inspect</span>
+        </header>
+        <div class="section-body">
+          <p class="section-intro">
+            <span class="lbl">PROTOCOL</span>
+            Each clip is a point on the (V, A) plane, where V ∈ [0, 1] is perceived
+            pleasantness and A ∈ [0, 1] is perceived energy. Background heatmap shows
+            density (20×20 bins). Replicates Fig. 3 of the paper. Click a point to inspect.
+          </p>
+
+          <div class="cols-2-uneven">
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">FIG.04</span>
+                <h3>VA_SCATTER + DENSITY</h3>
+                <span class="stamp">n = 767</span>
+              </div>
+              <div id="chart-va" class="chart" style="height:560px"></div>
+            </figure>
+            <aside class="va-side">
+              <div class="va-side-head">SELECTED</div>
+              <div class="va-side-body" id="va-side-body-wrap">
+                <h3 id="va-side-title">awaiting click...</h3>
+                <div id="va-side-body">
+                  <p class="muted">单击散点查看歌曲在四象限中的位置与基本信息。下一节给出每个象限里端值最显著的样本。</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section id="samples" class="section">
+        <header class="section-head">
+          <span class="num">[03]</span>
+          <h2>SAMPLES · ONE PER QUADRANT</h2>
+          <span class="stamp">audio + dynamic VA + EDA</span>
+        </header>
+        <div class="section-body">
+          <p class="section-intro">
+            <span class="lbl">MODALITIES</span>
+            For each quadrant, one chorus clip with the most extreme V/A values is shown.
+            Press play; the playhead slides along the dynamic VA curve (2 Hz)
+            and the multi-subject EDA traces (50 Hz, downsampled, z-scored).
+          </p>
+
+          <div class="tracklist">
+            <div class="tl-head">
+              <span>idx</span>
+              <span>title</span>
+              <span>artist</span>
+              <span>val</span>
+              <span>aro</span>
+              <span></span>
+            </div>
+            <div id="sample-tabs"></div>
+          </div>
+          <div class="detail" id="sample-detail"></div>
+        </div>
+      </section>
+
+      <section id="text" class="section">
+        <header class="section-head">
+          <span class="num">[04]</span>
+          <h2>TEXT · LYRICS &amp; LISTENER COMMENTS</h2>
+          <span class="stamp">parsed + tokenised</span>
+        </header>
+        <div class="section-body">
+          <p class="section-intro">
+            <span class="lbl">SOURCES</span>
+            Lyrics scraped as .lrc files (timestamps stripped); comments crawled from
+            Netease Cloud Music (中文) and SoundCloud (English). Word frequencies
+            below — note the difference in tone between the two listener communities.
+          </p>
+
+          <div class="cols-2">
+            <figure class="figure cloud-card">
+              <div class="fig-head">
+                <span class="id">FIG.05</span>
+                <h3>LYRICS_FREQUENCY</h3>
+                <span class="stamp" id="lyrics-meta"></span>
+              </div>
+              <div id="cloud-lyrics" class="chart"></div>
+            </figure>
+            <figure class="figure cloud-card">
+              <div class="fig-head">
+                <span class="id">FIG.06</span>
+                <h3>SOUNDCLOUD_COMMENTS</h3>
+                <span class="stamp" id="sc-meta"></span>
+              </div>
+              <div id="cloud-sc" class="chart"></div>
+            </figure>
+          </div>
+
+          <div class="cols-2">
+            <figure class="figure cloud-card">
+              <div class="fig-head">
+                <span class="id">FIG.07</span>
+                <h3>NETEASE_COMMENTS</h3>
+                <span class="stamp" id="ne-meta"></span>
+              </div>
+              <div id="cloud-ne" class="chart"></div>
+            </figure>
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">FIG.08</span>
+                <h3>NE_VS_SC · TOP-14 OVERLAY</h3>
+                <span class="stamp">cross-platform</span>
+              </div>
+              <p class="fig-caption">中文评论偏抒情，英文评论偏直白：网易云常见 "感觉 / 喜欢 / 听到"，SoundCloud 常见 "follow / love / fire / song".</p>
+              <div id="bar-text" class="chart" style="height:380px"></div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="ml" class="section">
+        <header class="section-head">
+          <span class="num">[05]</span>
+          <h2>ML · MODEL EXPERIMENTS</h2>
+          <span class="stamp">SVR · 60-d PCA</span>
+        </header>
+        <div class="section-body">
+          <p class="section-intro">
+            <span class="lbl">SETUP</span>
+            Original paper: 6373-d ComParE features → MLR / SVR → static V/A regression.
+            Reproduced here in compressed form: PCA-60 features → RBF-SVR (C=1.0).
+            Test split below; r values closely match the paper's baseline.
+          </p>
+
+          <div class="cols-2">
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">FIG.09</span>
+                <h3>PRED_VS_TRUE · VALENCE</h3>
+                <span class="stamp" id="ml-v-meta"></span>
+              </div>
+              <div id="chart-pred-v" class="chart" style="height:340px"></div>
+            </figure>
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">FIG.10</span>
+                <h3>PRED_VS_TRUE · AROUSAL</h3>
+                <span class="stamp" id="ml-a-meta"></span>
+              </div>
+              <div id="chart-pred-a" class="chart" style="height:340px"></div>
+            </figure>
+          </div>
+
+          <figure class="figure quiz-card">
+            <div class="fig-head">
+              <span class="id">FIG.11</span>
+              <h3>LISTENER_QUIZ · INTERACTIVE</h3>
+              <span class="stamp">human vs annotators</span>
+            </div>
+            <div id="quiz" class="quiz"></div>
+          </figure>
+
+          <div class="cols-2">
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">TAB.01</span>
+                <h3>PAPER_BASELINES</h3>
+                <span class="stamp">10-fold CV · 6373-d</span>
+              </div>
+              <div style="padding:0 14px 14px">
+                <table class="result-table">
+                  <thead>
+                    <tr><th>task</th><th>model</th><th>RMSE</th><th>r</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td rowspan="2">static V</td><td>MLR</td><td class="num">0.136</td><td class="num">0.546</td></tr>
+                    <tr><td>SVR</td><td class="num">0.124</td><td class="num">0.638</td></tr>
+                    <tr><td rowspan="2">static A</td><td>MLR</td><td class="num">0.111</td><td class="num">0.719</td></tr>
+                    <tr><td>SVR</td><td class="num">0.102</td><td class="num">0.764</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </figure>
+            <figure class="figure">
+              <div class="fig-head">
+                <span class="id">NOTES</span>
+                <h3>METHODOLOGY · 4 KEY POINTS</h3>
+                <span class="stamp">refer §3</span>
+              </div>
+              <div style="padding:6px 16px 14px">
+                <ol class="bullet">
+                  <li>457 subjects: 266 Chinese non-music students + 44 music majors + 47 native English speakers. Each clip annotated by ≥10 listeners.</li>
+                  <li>Dynamic V/A sampled at 2 Hz. First 15 s discarded (Initial Orientation Time, cf. Schubert 2007).</li>
+                  <li>EDA via Biopac MP150 + BSL-SS3LA finger electrodes, 50 Hz sampling, 0.6 Hz low-pass + z-score.</li>
+                  <li>Cronbach's α ≈ 0.998 on both V and A — exceptional inter-annotator reliability.</li>
+                </ol>
+              </div>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <footer class="colophon">
+        <div class="colophon-grid">
+          <div>
+            <h4>readme</h4>
+            <p class="imprint">PMEMO/2019<span class="blink">_</span></p>
+            <p>An open dataset for music emotion recognition. Built at <a href="https://www.next.zju.edu.cn/" target="_blank" rel="noreferrer">NEXT Lab</a>, Zhejiang University, with Alibaba Group.</p>
+          </div>
+          <div>
+            <h4>cite</h4>
+            <p>Zhang K., Zhang H., Li S., Yang C., Sun L. (2018). The PMEmo Dataset for Music Emotion Recognition. <em>Proc. ICMR '18</em>, pp. 135–142.</p>
+          </div>
+          <div>
+            <h4>visit</h4>
+            <p><a href="https://github.com/HuiZhangDB/PMEmo" target="_blank" rel="noreferrer">github.com/HuiZhangDB/PMEmo</a></p>
+            <p><a href="https://www.next.zju.edu.cn/" target="_blank" rel="noreferrer">next.zju.edu.cn</a></p>
+          </div>
+        </div>
+        <div class="foot-bar">
+          <span>// visualization built 2026 with claude code</span>
+          <span>END_OF_FILE</span>
+        </div>
+      </footer>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
